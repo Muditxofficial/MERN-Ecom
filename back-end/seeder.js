@@ -20,7 +20,7 @@ const importData = async () => {
         await Order.deleteMany()
         await Product.deleteMany()
         await User.deleteMany()
-
+//Given an array of documents, insertMany() inserts each document in the array into the collection.
         const createdUsers = await User.insertMany(users)
 
         const adminUser = createdUsers[0]._id
@@ -55,6 +55,16 @@ const destroyData = async () => {
         process.exit(1)
     }
 }
+/*The process.argv property returns an array containing the command-line arguments
+ passed when the Node.js process was launched.  
+ process.argv[0] == '/usr/local/bin/node'
+process.argv[1] == '/Users/maerics/src/js/sum-process-argv.js'
+process.argv[2] == '1'
+process.argv[3] == '2'
+process.argv[4] == '3'
+Output:-1 2 3
+elements 0 and 1 are arguments to the shell. The rest are arguments to node.js
+ */
 if(process.argv[2] === '-d'){
     destroyData()
 }else{
